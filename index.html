@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<title>PFL/MVP 2027 — betting sponsorship</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ffffff;
+    --ink:#000000;
+    --muted:#63676d;
+    --rule:#dcdee1;
+    --tint:#f3f4f5;
+    --red:#e0001b;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--tint);
+    color:var(--ink);
+    font-family:'Archivo',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+    font-size:15px;
+    line-height:1.55;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+  }
+  .sheet{
+    max-width:940px;
+    margin:32px auto;
+    background:var(--paper);
+    padding:0 60px 64px;
+  }
+
+  /* tabs */
+  .tabs{
+    display:flex;
+    gap:0;
+    border-bottom:1px solid var(--rule);
+    margin:0 -60px 44px;
+    padding:0 60px;
+    position:sticky;
+    top:0;
+    background:var(--paper);
+    z-index:5;
+  }
+  .tab{
+    appearance:none;
+    background:none;
+    border:none;
+    border-bottom:3px solid transparent;
+    margin-bottom:-1px;
+    padding:22px 0 15px;
+    margin-right:34px;
+    font:inherit;
+    font-size:14.5px;
+    font-weight:600;
+    letter-spacing:-.012em;
+    color:var(--muted);
+    cursor:pointer;
+  }
+  .tab:hover{color:var(--ink)}
+  .tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--red)}
+  .tab:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+  [hidden]{display:none !important}
+
+  /* masthead */
+  .mast{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap}
+  .kicker{font-size:13px;font-weight:600;color:var(--muted);margin:0 0 6px}
+  h1{
+    font-size:clamp(29px,4.4vw,44px);
+    font-weight:800;
+    letter-spacing:-.035em;
+    line-height:1.03;
+    margin:0;
+    max-width:17ch;
+  }
+  .stamp{font-size:12.5px;color:var(--muted);text-align:right;line-height:1.5}
+  .stamp b{display:block;color:var(--ink);font-weight:600}
+  .mast-logo{text-align:right}
+  .mast-logo img{height:22px;width:auto;display:inline-block}
+  .mast-logo span{display:block;font-size:12.5px;color:var(--muted);margin-top:8px}
+
+  /* problem strip (Cloudbet) */
+  .strip{
+    margin:34px 0 0;
+    border-top:2px solid var(--ink);
+    border-bottom:1px solid var(--rule);
+    padding:24px 0;
+    display:grid;
+    grid-template-columns:1fr 250px;
+    gap:36px;
+    align-items:start;
+  }
+  .strip h2{
+    font-size:clamp(19px,2.4vw,25px);
+    font-weight:600;
+    letter-spacing:-.022em;
+    line-height:1.3;
+    margin:0;
+    max-width:40ch;
+  }
+  .strip h2 em{font-style:normal;border-bottom:3px solid var(--red);padding-bottom:1px}
+  .strip .fix{font-size:14px;color:#2c3035;line-height:1.5}
+  .strip .fix b{display:block;font-weight:600;color:var(--ink);margin-bottom:4px}
+
+  /* event ledger (market approach) */
+  .ledger{
+    margin:34px 0 0;
+    border-top:2px solid var(--ink);
+    border-bottom:1px solid var(--rule);
+    display:flex;
+    flex-wrap:wrap;
+  }
+  .lg-total{
+    padding:18px 28px 18px 0;
+    margin-right:28px;
+    border-right:1px solid var(--rule);
+    min-width:150px;
+  }
+  .lg-total .n{font-size:52px;font-weight:800;letter-spacing:-.05em;line-height:.9;display:block}
+  .lg-total .l{font-size:13px;color:var(--muted);margin-top:6px;display:block}
+  .lg-cells{display:flex;flex-wrap:wrap;flex:1;align-items:stretch}
+  .cell{padding:20px 26px 18px 0;margin-right:26px;flex:0 0 auto}
+  .cell .n{font-size:24px;font-weight:800;letter-spacing:-.03em;line-height:1;display:block}
+  .cell .n span{font-size:13px;font-weight:600;color:var(--red);margin-left:5px;letter-spacing:0}
+  .cell .l{font-size:12.5px;color:var(--muted);margin-top:5px;display:block;max-width:16ch;line-height:1.35}
+
+  .principle{
+    margin:34px 0 0;
+    font-size:clamp(19px,2.4vw,25px);
+    font-weight:600;
+    letter-spacing:-.022em;
+    line-height:1.3;
+    max-width:40ch;
+  }
+  .principle em{font-style:normal;border-bottom:3px solid var(--red);padding-bottom:1px}
+
+  /* blocks */
+  .block{
+    display:grid;
+    grid-template-columns:200px 1fr;
+    gap:34px;
+    padding:25px 0;
+    border-top:1px solid var(--rule);
+  }
+  .block.numbered{grid-template-columns:52px 200px 1fr;gap:22px}
+  .lead{margin-top:34px;border-top:2px solid var(--ink)}
+  .num{font-size:15px;font-weight:800;color:var(--red);letter-spacing:-.02em;padding-top:1px}
+  .bl-title{font-size:16px;font-weight:800;letter-spacing:-.02em;line-height:1.22;margin:0}
+  .bl-sub{font-size:12.5px;color:var(--muted);margin:7px 0 0;line-height:1.4}
+  .bl-body > :first-child{margin-top:0}
+  .bl-body > :last-child{margin-bottom:0}
+  .bl-body p{margin:0 0 11px;max-width:62ch;font-size:14.5px}
+
+  .terr{list-style:none;margin:0 0 14px;padding:0}
+  .terr li{
+    display:grid;
+    grid-template-columns:118px 1fr;
+    gap:16px;
+    padding:7px 0;
+    border-bottom:1px solid var(--rule);
+    align-items:baseline;
+  }
+  .terr li:last-child{border-bottom:none}
+  .terr .m{font-weight:600;font-size:14.5px;letter-spacing:-.01em}
+  .terr .m i{font-style:normal;color:var(--red);font-weight:600;font-size:12px;margin-left:6px}
+  .terr .d{color:#33373c;font-size:14px}
+
+  ul.bul{margin:0 0 11px;padding:0;list-style:none}
+  ul.bul li{position:relative;padding-left:16px;margin-bottom:6px;max-width:62ch;font-size:14.5px}
+  ul.bul li:before{content:"";position:absolute;left:0;top:.62em;width:6px;height:1.5px;background:var(--ink)}
+  ul.bul li b{font-weight:600}
+
+  .note{
+    background:var(--tint);
+    padding:14px 16px;
+    font-size:13.5px;
+    line-height:1.5;
+    color:#2c3035;
+    max-width:62ch;
+    border-left:2px solid var(--red);
+  }
+
+  .close{
+    margin-top:30px;
+    border-top:2px solid var(--ink);
+    padding-top:22px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:36px;
+  }
+  .close h3{font-size:15px;font-weight:800;letter-spacing:-.02em;margin:0 0 8px}
+  .close p{margin:0 0 10px;font-size:14px;line-height:1.5;color:#2c3035;max-width:48ch}
+  .close p:last-child{margin-bottom:0}
+
+  footer{
+    margin-top:32px;
+    padding-top:15px;
+    border-top:2px solid var(--ink);
+    font-size:12.5px;
+    color:var(--muted);
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+
+  @media (max-width:720px){
+    .sheet{padding:0 22px 44px;margin:0}
+    .tabs{margin:0 -22px 30px;padding:0 22px;overflow-x:auto}
+    .tab{padding:18px 0 13px;margin-right:24px;white-space:nowrap}
+    .strip{grid-template-columns:1fr;gap:18px}
+    .block,.block.numbered{grid-template-columns:1fr;gap:11px}
+    .num{padding-top:0}
+    .close{grid-template-columns:1fr;gap:22px}
+    .mast-logo,.stamp{text-align:left}
+    .terr li{grid-template-columns:1fr;gap:2px}
+    .lg-total{border-right:none;margin-right:0;padding-right:0;width:100%;border-bottom:1px solid var(--rule)}
+  }
+  @media print{
+    body{background:#fff}
+    .sheet{margin:0;padding:0;max-width:none}
+    .tabs{display:none}
+    [hidden]{display:block !important}
+    .block{break-inside:avoid}
+    .panel + .panel{break-before:page;padding-top:20px}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="tabs" role="tablist" aria-label="One-pagers">
+    <button class="tab" role="tab" id="tab-cb" aria-controls="panel-cb" aria-selected="true">Cloudbet structure</button>
+    <button class="tab" role="tab" id="tab-mk" aria-controls="panel-mk" aria-selected="false">Market approach</button>
+  </div>
+
+  <!-- ============ CLOUDBET ============ -->
+  <section class="panel" id="panel-cb" role="tabpanel" aria-labelledby="tab-cb">
+
+    <div class="mast">
+      <div>
+        <p class="kicker">PFL / MVP 2027 season</p>
+        <h1>Cloudbet: proposed 2027 structure</h1>
+      </div>
+      <div class="mast-logo">
+        <img src="assets/cloudbet.png" alt="Cloudbet">
+        <span>Incumbent global betting partner</span>
+      </div>
+    </div>
+
+    <div class="strip">
+      <h2>Cloudbet holds rights across every event but <em>cannot legally activate</em> in most of the markets where those events land.</h2>
+      <div class="fix">
+        <b>The fix</b>
+        Strip out what they cannot use, replace it with inventory that travels, and reprice against what is actually deliverable.
+      </div>
+    </div>
+
+    <div class="block numbered">
+      <div class="num">1</div>
+      <div>
+        <h3 class="bl-title">Retitle to reflect scope</h3>
+        <p class="bl-sub">Naming sets the hierarchy</p>
+      </div>
+      <div class="bl-body">
+        <ul class="bul">
+          <li><b>Official International Betting Partner of PFL</b> — international feed and out-of-territory digital only.</li>
+          <li>Regional partners take <b>Official Betting Partner of PFL in [market]</b>.</li>
+          <li>No global betting exclusive. Category exclusivity becomes territorial by definition.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="block numbered">
+      <div class="num">2</div>
+      <div>
+        <h3 class="bl-title">Event assets: geo-targeted virtual overlay only</h3>
+        <p class="bl-sub">No physical branding out of territory</p>
+      </div>
+      <div class="bl-body">
+        <ul class="bul">
+          <li>Cage mat, apron and LED delivered by digital board replacement on the international feed.</li>
+          <li>Domestic feed carries the regional partner. Neither brand appears in the other's market.</li>
+          <li>Same physical asset sold twice, no conflict, no licensing exposure.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="block numbered">
+      <div class="num">3</div>
+      <div>
+        <h3 class="bl-title">Year-round global content, not event-tagged</h3>
+        <p class="bl-sub">The core of their reach</p>
+      </div>
+      <div class="bl-body">
+        <p>Owned series running across the calendar and attached to no specific event, so nothing is tied to a fight they cannot legally promote.</p>
+        <ul class="bul">
+          <li>Fighter predictions series.</li>
+          <li>Behind-the-scenes and fighter access content.</li>
+          <li>Archive and highlights licence for their own channels.</li>
+        </ul>
+        <p><b>Access to ambassadors, rest of world.</b> Fighters for shoots, appearances, social content and odds or predictions segments, including fighters from or popular in the markets where they are licensed. Ambassadors travel where signage cannot, so this is the strongest asset in a package with no in-venue presence. Booked against an agreed number of days and allocated to avoid clashes with regional partners.</p>
+      </div>
+    </div>
+
+    <div class="block numbered">
+      <div class="num">4</div>
+      <div>
+        <h3 class="bl-title">In-territory uplift</h3>
+        <p class="bl-sub">Full domestic package where they are licensed</p>
+      </div>
+      <div class="bl-body">
+        <ul class="bul">
+          <li>For any event falling inside their agreed territory list, Cloudbet takes all physical branding, in-venue, hospitality and ticketing, plus domestic social and digital.</li>
+          <li>Priced on a rate card by market tier, so expansion is a purchase rather than a renegotiation.</li>
+          <li>Gives them a direct commercial reason to widen their licensing footprint.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="block numbered">
+      <div class="num">5</div>
+      <div>
+        <h3 class="bl-title">Netflix blockbuster build-up, as an upweight</h3>
+        <p class="bl-sub">Paid add-on, not part of the base</p>
+      </div>
+      <div class="bl-body">
+        <ul class="bul">
+          <li>Rest-of-world rights to fight week, weigh-in, press conference, fighter content and owned social around the four Netflix events.</li>
+          <li>Domestic slice sold separately to the US partner.</li>
+          <li>This is the cheapest lever we have for holding the fee up once the territory list narrows.</li>
+        </ul>
+        <p class="note">Confirm Netflix advertising standards on gambling, and specifically whether they will accept an operator unlicensed in the US anywhere near the property, before this is priced.</p>
+      </div>
+    </div>
+
+    <div class="block numbered">
+      <div class="num">6</div>
+      <div>
+        <h3 class="bl-title">Slim down the territory list</h3>
+        <p class="bl-sub">Reserved markets go to licensed partners</p>
+      </div>
+      <div class="bl-body">
+        <ul class="bul">
+          <li><b>Remove all regulated European markets</b> — UK, France, Germany, Spain, Italy, Netherlands.</li>
+          <li><b>Remove</b> the United States, Canada and Australia.</li>
+          <li>These form the reserved market schedule, sold to licensed regional partners.</li>
+          <li>PFL retains the right to add markets to the schedule on notice as new events are announced.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="block numbered">
+      <div class="num">7</div>
+      <div>
+        <h3 class="bl-title">First refusal on new territories</h3>
+        <p class="bl-sub">Keeps the relationship growing</p>
+      </div>
+      <div class="bl-body">
+        <p>As Cloudbet acquires licences, they take first refusal on that market at the pre-agreed rate, moving it from the standard package to the in-territory uplift.</p>
+      </div>
+    </div>
+
+    <div class="close">
+      <div>
+        <h3>How we open the conversation</h3>
+        <p>Lead with a rights utilisation analysis rather than a renegotiation. Map their current package against their licence footprint and show what proportion is legally unusable.</p>
+        <p>The pitch is that we are removing dead inventory and replacing it with inventory they can spend. Lower absolute fee, better effective CPM, cleaner rights, and they keep the association.</p>
+      </div>
+      <div>
+        <h3>Before we go in</h3>
+        <p>Establish whether Cloudbet also takes PFL streaming or data through IMG Arena. If so, part of their spend already sits outside the sponsorship line and we should negotiate against total relationship value.</p>
+        <p>Have a multi-licensed alternative warm. Betano, Betsson, Parimatch and Stake are all buying this shape of deal, and the position is genuinely sellable if Cloudbet will not take the narrowed structure.</p>
+      </div>
+    </div>
+
+    <footer>
+      <span>PFL / MVP betting sponsorship, 2027 slate</span>
+      <span>Draft for internal discussion</span>
+    </footer>
+
+  </section>
+
+  <!-- ============ MARKET APPROACH ============ -->
+  <section class="panel" id="panel-mk" role="tabpanel" aria-labelledby="tab-mk" hidden>
+
+    <div class="mast">
+      <div>
+        <p class="kicker">PFL / MVP 2027 season</p>
+        <h1>Betting sponsorship: how we go to market</h1>
+      </div>
+      <div class="stamp">
+        <b>Commercial partnerships</b>
+        Internal working paper
+      </div>
+    </div>
+
+    <div class="ledger">
+      <div class="lg-total">
+        <span class="n">30</span>
+        <span class="l">events across the 2027 slate</span>
+      </div>
+      <div class="lg-cells">
+        <div class="cell"><span class="n">16</span><span class="l">United States<br>10 MMA, 6 boxing</span></div>
+        <div class="cell"><span class="n">4</span><span class="l">United Kingdom<br>boxing</span></div>
+        <div class="cell"><span class="n">4</span><span class="l">Europe<br>MMA</span></div>
+        <div class="cell"><span class="n">2</span><span class="l">Middle East<br>MMA</span></div>
+        <div class="cell"><span class="n">4 <span>Netflix</span></span><span class="l">Blockbuster<br>venues to confirm</span></div>
+      </div>
+    </div>
+
+    <p class="principle">Sell the territory first. Fill everywhere else with <em>one standard package</em>, sold repeatedly rather than negotiated deal by deal.</p>
+
+    <div class="block lead">
+      <div>
+        <h3 class="bl-title">Regional partners lead wherever events land</h3>
+        <p class="bl-sub">Licensed operators, full domestic rights, one per market</p>
+      </div>
+      <div class="bl-body">
+        <ul class="terr">
+          <li><span class="m">United States <i>16 events</i></span><span class="d">Largest single line. Sportsbook, with first refusal on real-money iCasino in the seven live states.</span></li>
+          <li><span class="m">United Kingdom <i>4 events</i></span><span class="d">Sold standalone. Do not bundle into a pan-European package.</span></li>
+          <li><span class="m">France <i>anchor event</i></span><span class="d">Lyon anchors the European MMA run. Pipeline already active.</span></li>
+          <li><span class="m">DACH, Iberia, Italy</span><span class="d">Sold against the remaining European MMA slots as venues confirm.</span></li>
+          <li><span class="m">Australia</span><span class="d">No events, but real MMA handle. Broadcast and digital led.</span></li>
+          <li><span class="m">Middle East <i>2 events</i></span><span class="d">Not a betting market. Sell locally to non-endemic categories and keep betting creative off the domestic feed.</span></li>
+        </ul>
+        <ul class="bul">
+          <li><b>What a regional partner gets:</b> all physical branding and in-venue, hospitality and ticketing, domestic broadcast, and domestic social and digital.</li>
+          <li><b>Category exclusivity is territorial by definition.</b> No partner holds a global betting exclusive. This is the clause that has been causing the fragmentation.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="block">
+      <div>
+        <h3 class="bl-title">Fill the rest with one standard package</h3>
+        <p class="bl-sub">Same asset set every time, rate card by market tier</p>
+      </div>
+      <div class="bl-body">
+        <p>Operators outside the reserved markets buy a fixed shape of deal built only from inventory that travels. This is the structure the incumbent global partner moves onto, and it becomes the template for every deal in this tier.</p>
+        <ul class="bul">
+          <li><b>Geo-targeted virtual overlay</b> on the international feed. No physical branding at any event outside their territory list.</li>
+          <li><b>Access to PFL content</b> across the full event cycle: pre-event build-up, fight week, in-event and post-event material, plus archive and highlights for their own channels.</li>
+          <li><b>Access to regional ambassadors.</b> Fighters from or popular in their market, available for shoots, appearances, social content and odds or predictions segments. Ambassadors travel where signage cannot, so this is usually the highest-converting part of the package for an operator with no in-venue presence. Allocated per partner to avoid clashes and booked against an agreed number of days.</li>
+          <li><b>In-territory uplift.</b> If an event lands inside their market, they take the full domestic package, priced on the rate card rather than renegotiated.</li>
+          <li><b>Netflix blockbuster build-up</b> available as a paid add-on, not included in the base.</li>
+          <li><b>First refusal on new territories</b> as they acquire licences.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="block">
+      <div>
+        <h3 class="bl-title">Split the US by category, not just by market</h3>
+        <p class="bl-sub">Three separate sales, non-conflicting</p>
+      </div>
+      <div class="bl-body">
+        <ul class="bul">
+          <li><b>Sportsbook</b> — roughly 38 states. The anchor US deal.</li>
+          <li><b>Prediction markets</b> — all 50 states, which brings California, Texas and Georgia into play. Official data and integrity co-operation are part of the paid package, not a courtesy.</li>
+          <li><b>Social casino</b> — sell it, but on a twelve-month term with a hard regulatory-change break. Seven states banned the model during 2026.</li>
+        </ul>
+        <p class="note">These stay non-conflicting only if the non-sportsbook categories are held to digital, social and free-to-play. No cage, no ring, no broadcast bug.</p>
+      </div>
+    </div>
+
+    <div class="block">
+      <div>
+        <h3 class="bl-title">Content partnerships need Watch &amp; Bet flexibility</h3>
+        <p class="bl-sub">The change that unlocks a whole tier of deals</p>
+      </div>
+      <div class="bl-body">
+        <p>Wildz and Sportsbet type deals are content and streaming led rather than signage led, and they are the natural fill for markets where we will never sell a full domestic package. The IMG Arena Watch &amp; Bet agreement currently gates who can stream PFL, which is why these conversations keep stalling.</p>
+        <ul class="bul">
+          <li><b>What we need:</b> an express right to sub-licence streaming to operators we sign directly.</li>
+        </ul>
+        <p class="note">Watch &amp; Bet returns 70% of gross on content. Model the sponsorship upside against any revenue share we give up before opening the negotiation.</p>
+      </div>
+    </div>
+
+    <div class="block">
+      <div>
+        <h3 class="bl-title">Timing</h3>
+        <p class="bl-sub">Working back from US budget cycles</p>
+      </div>
+      <div class="bl-body">
+        <ul class="bul">
+          <li><b>Now to October 2026</b> — settle the global partner position, publish the reserved market schedule and category definitions internally, open the Watch &amp; Bet conversation.</li>
+          <li><b>October to December 2026</b> — US sportsbook and US prediction markets. US operators set 2027 budgets between September and November, so this window is fixed.</li>
+          <li><b>November 2026 to February 2027</b> — UK, France, DACH, Iberia, Australia.</li>
+          <li><b>Q1 2027</b> — social casino, content partnerships and affiliate fill.</li>
+        </ul>
+      </div>
+    </div>
+
+    <footer>
+      <span>PFL / MVP betting sponsorship, 2027 slate</span>
+      <span>Draft for internal discussion</span>
+    </footer>
+
+  </section>
+
+</div>
+
+<script>
+  (function(){
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+    function select(tab){
+      tabs.forEach(function(t){
+        var panel = document.getElementById(t.getAttribute('aria-controls'));
+        var on = (t === tab);
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        panel.hidden = !on;
+      });
+      window.scrollTo(0,0);
+    }
+    tabs.forEach(function(t, i){
+      t.addEventListener('click', function(){ select(t); });
+      t.addEventListener('keydown', function(e){
+        if(e.key === 'ArrowRight' || e.key === 'ArrowLeft'){
+          e.preventDefault();
+          var next = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+          next.focus(); select(next);
+        }
+      });
+    });
+  })();
+</script>
+</body>
+</html>
