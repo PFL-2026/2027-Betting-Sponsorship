@@ -288,18 +288,18 @@
   .key-h{font-size:18px;font-weight:800;letter-spacing:-.025em;margin:0}
   .key-sub{font-size:13px;color:var(--muted);margin:6px 0 18px;max-width:70ch}
   table.keytab th{text-align:center}
+  table.keytab th.c-t,table.keytab td.c-t{width:22%;min-width:96px}
+  table.keytab td.k1{--s:#c2410c}
+  table.keytab td.k2{--s:#0f5566}
+  table.keytab td.k3{--s:#15603a}
+  table.keytab tfoot td{text-align:center}
+  table.keytab tfoot td:first-child{text-align:left}
+  tr.tickrow td{border-top:2px solid var(--ink);border-bottom:1px solid var(--rule) !important;font-size:15px}
+  tr.tickrow td.tally{font-variant-numeric:tabular-nums}
+  table.keytab tfoot tr:last-child td{border-top:none;padding-top:14px}
+  .grade.rank,.grade.headrank{min-width:34px;text-align:center}
   table.keytab th.c-mkt,table.keytab td.c-mkt{text-align:left;width:34%}
   table.keytab td{text-align:center}
-  .sc{
-    font-style:normal;display:inline-block;min-width:26px;padding:3px 0;
-    font-weight:700;font-size:13.5px;background:var(--tint);
-  }
-  .sc[data-v="5"]{background:var(--ink);color:#fff}
-  .sc[data-v="4"]{background:#4a4f55;color:#fff}
-  .sc[data-v="3"]{background:#c9ccd0}
-  .sc[data-v="2"]{background:#e7e9eb}
-  .sc[data-v="1"]{background:#f4f5f6;color:#8a8f96}
-  table.keytab tfoot .grade{display:inline-block}
   .grade.g1{background:#c2410c}
   .grade.g2{background:#0f5566}
   .grade.g3{background:#15603a}
@@ -646,7 +646,7 @@
           <span class="scen-no">Scenario 1</span>
           <h3>Hail Mary: one global partner, everything</h3>
         </div>
-        <span class="grade">C</span>
+        <span class="grade headrank hr1">&mdash;</span>
       </div>
       <p class="scen-lede">A single global betting partner — crypto, web3 or grey market — takes full exclusive access to every event across MMA and boxing, in cage and ring, on broadcast and across all social and digital. Content partnerships run alongside.</p>
       <div class="tw">
@@ -671,7 +671,7 @@
           <span class="scen-no">Scenario 2</span>
           <h3>Global partner plus full regional fill</h3>
         </div>
-        <span class="grade">B+</span>
+        <span class="grade headrank hr2">&mdash;</span>
       </div>
       <p class="scen-lede">Close to the current model. One global betting partner on virtual broadcast overlay, non-event-specific social and ambassadors. Every event market then filled with a regional partner holding exclusive access across all channels in their territory. The US splits into three categories.</p>
       <div class="tw">
@@ -702,7 +702,7 @@
           <span class="scen-no">Scenario 3</span>
           <h3>Global partner, regional fill, one deep US partner</h3>
         </div>
-        <span class="grade">A</span>
+        <span class="grade headrank hr3">&mdash;</span>
       </div>
       <p class="scen-lede">As Scenario 2, but the US goes to a single partner combining sports betting and predictions under one agreement, with social casino filled separately. Fewer US relationships, run deeper.</p>
       <div class="tw">
@@ -728,23 +728,24 @@
     <!-- KEY -->
     <div class="keyblock">
       <h3 class="key-h">Scoring key</h3>
-      <p class="key-sub">Each factor scored out of five, higher is better. Grade is the weighted read across all factors, with revenue and regulatory safety carrying the most weight.</p>
+      <p class="key-sub">Tick the factors each scenario delivers. The preference rank is a straight count of ticks, so it updates as you change them.</p>
       <div class="tw">
       <table class="stab keytab">
         <thead>
-          <tr><th class="c-mkt">Factor</th><th>Scenario 1</th><th>Scenario 2</th><th>Scenario 3</th></tr>
+          <tr><th class="c-mkt">Factor</th><th class="c-t">Scenario 1</th><th class="c-t">Scenario 2</th><th class="c-t">Scenario 3</th></tr>
         </thead>
         <tbody>
-          <tr><td class="c-mkt">Revenue potential</td><td><i class="sc" data-v="2" contenteditable="true">2</i></td><td><i class="sc" data-v="5" contenteditable="true">5</i></td><td><i class="sc" data-v="4" contenteditable="true">4</i></td></tr>
-          <tr><td class="c-mkt">Regulatory safety</td><td><i class="sc" data-v="1" contenteditable="true">1</i></td><td><i class="sc" data-v="5" contenteditable="true">5</i></td><td><i class="sc" data-v="5" contenteditable="true">5</i></td></tr>
-          <tr><td class="c-mkt">Partner impact and depth</td><td><i class="sc" data-v="3" contenteditable="true">3</i></td><td><i class="sc" data-v="3" contenteditable="true">3</i></td><td><i class="sc" data-v="5" contenteditable="true">5</i></td></tr>
-          <tr><td class="c-mkt">Share of voice protection</td><td><i class="sc" data-v="5" contenteditable="true">5</i></td><td><i class="sc" data-v="2" contenteditable="true">2</i></td><td><i class="sc" data-v="4" contenteditable="true">4</i></td></tr>
-          <tr><td class="c-mkt">Fan interaction with brands</td><td><i class="sc" data-v="2" contenteditable="true">2</i></td><td><i class="sc" data-v="4" contenteditable="true">4</i></td><td><i class="sc" data-v="5" contenteditable="true">5</i></td></tr>
-          <tr><td class="c-mkt">Ease of servicing</td><td><i class="sc" data-v="5" contenteditable="true">5</i></td><td><i class="sc" data-v="2" contenteditable="true">2</i></td><td><i class="sc" data-v="3" contenteditable="true">3</i></td></tr>
-          <tr><td class="c-mkt">2028 optionality</td><td><i class="sc" data-v="1" contenteditable="true">1</i></td><td><i class="sc" data-v="4" contenteditable="true">4</i></td><td><i class="sc" data-v="4" contenteditable="true">4</i></td></tr>
+          <tr><td class="c-mkt">Revenue potential</td><td class="c-t k1 n tick" tabindex="0" role="button" aria-pressed="false">&ndash;</td><td class="c-t k2 y tick" tabindex="0" role="button" aria-pressed="true">&#10003;</td><td class="c-t k3 y tick" tabindex="0" role="button" aria-pressed="true">&#10003;</td></tr>
+          <tr><td class="c-mkt">Regulatory safety</td><td class="c-t k1 n tick" tabindex="0" role="button" aria-pressed="false">&ndash;</td><td class="c-t k2 y tick" tabindex="0" role="button" aria-pressed="true">&#10003;</td><td class="c-t k3 y tick" tabindex="0" role="button" aria-pressed="true">&#10003;</td></tr>
+          <tr><td class="c-mkt">Partner impact and depth</td><td class="c-t k1 n tick" tabindex="0" role="button" aria-pressed="false">&ndash;</td><td class="c-t k2 n tick" tabindex="0" role="button" aria-pressed="false">&ndash;</td><td class="c-t k3 y tick" tabindex="0" role="button" aria-pressed="true">&#10003;</td></tr>
+          <tr><td class="c-mkt">Share of voice protection</td><td class="c-t k1 y tick" tabindex="0" role="button" aria-pressed="true">&#10003;</td><td class="c-t k2 n tick" tabindex="0" role="button" aria-pressed="false">&ndash;</td><td class="c-t k3 y tick" tabindex="0" role="button" aria-pressed="true">&#10003;</td></tr>
+          <tr><td class="c-mkt">Fan interaction with brands</td><td class="c-t k1 n tick" tabindex="0" role="button" aria-pressed="false">&ndash;</td><td class="c-t k2 y tick" tabindex="0" role="button" aria-pressed="true">&#10003;</td><td class="c-t k3 y tick" tabindex="0" role="button" aria-pressed="true">&#10003;</td></tr>
+          <tr><td class="c-mkt">Ease of servicing</td><td class="c-t k1 y tick" tabindex="0" role="button" aria-pressed="true">&#10003;</td><td class="c-t k2 n tick" tabindex="0" role="button" aria-pressed="false">&ndash;</td><td class="c-t k3 n tick" tabindex="0" role="button" aria-pressed="false">&ndash;</td></tr>
+          <tr><td class="c-mkt">2028 optionality</td><td class="c-t k1 n tick" tabindex="0" role="button" aria-pressed="false">&ndash;</td><td class="c-t k2 y tick" tabindex="0" role="button" aria-pressed="true">&#10003;</td><td class="c-t k3 y tick" tabindex="0" role="button" aria-pressed="true">&#10003;</td></tr>
         </tbody>
         <tfoot>
-          <tr><td>Grade</td><td><span class="grade g1" contenteditable="true">C</span></td><td><span class="grade g2" contenteditable="true">B+</span></td><td><span class="grade g3" contenteditable="true">A</span></td></tr>
+          <tr class="tickrow"><td>Factors delivered</td><td class="c-t tally t1">&mdash;</td><td class="c-t tally t2">&mdash;</td><td class="c-t tally t3">&mdash;</td></tr>
+          <tr><td>Preference</td><td class="c-t"><span class="grade g1 rank r1">&mdash;</span></td><td class="c-t"><span class="grade g2 rank r2">&mdash;</span></td><td class="c-t"><span class="grade g3 rank r3">&mdash;</span></td></tr>
         </tfoot>
       </table>
       </div>
@@ -768,7 +769,7 @@
       '.principle','.potline','.edithint',
       '.bl-title','.bl-sub','.bl-body p','.bl-body li',
       '.terr .m','.terr .d',
-      '.scen-no','.scen-head h3','.scen-head .grade','.scen-lede',
+      '.scen-no','.scen-head h3','.scen-lede',
       '.key-h','.key-sub',
       'table.stab thead th','table.stab td.c-mkt','table.stab tfoot td:first-child',
       'footer span'
@@ -777,7 +778,7 @@
       document.querySelectorAll(EDITABLE).forEach(function(el){
         el.setAttribute('contenteditable', on ? 'true' : 'false');
       });
-      document.querySelectorAll('td.c-rev[contenteditable], .sc, .keytab .grade').forEach(function(el){
+      document.querySelectorAll('td.c-rev[contenteditable]').forEach(function(el){
         el.setAttribute('contenteditable', on ? 'true' : 'false');
       });
       document.body.classList.toggle('locked', !on);
@@ -826,10 +827,6 @@
       if(t.querySelector('tfoot td.total')) recalc(t);
       t.addEventListener('input', function(e){
         if(e.target.classList && e.target.classList.contains('c-rev')) recalc(t);
-        if(e.target.classList && e.target.classList.contains('sc')){
-          var v = (e.target.textContent || '').replace(/[^0-9]/g,'').slice(0,1);
-          e.target.setAttribute('data-v', v);
-        }
       });
       t.addEventListener('click', function(e){
         var td = e.target.closest ? e.target.closest('td.tick') : null;
@@ -864,7 +861,29 @@
       td.classList.toggle('n', on);
       td.setAttribute('aria-pressed', on ? 'false' : 'true');
       td.innerHTML = on ? '\u2013' : '\u2713';
+      if(td.closest('table.keytab')) rank();
     }
+
+    function rank(){
+      var key = document.querySelector('table.keytab');
+      if(!key) return;
+      var counts = [1,2,3].map(function(i){
+        return key.querySelectorAll('tbody td.k' + i + '.y').length;
+      });
+      counts.forEach(function(c, i){
+        var cell = key.querySelector('tfoot td.t' + (i+1));
+        if(cell) cell.textContent = c;
+      });
+      var sorted = counts.slice().sort(function(a,b){ return b - a; });
+      counts.forEach(function(c, i){
+        var pos = sorted.indexOf(c) + 1;
+        var badge = key.querySelector('.r' + (i+1));
+        if(badge) badge.textContent = pos;
+        var head = document.querySelector('.hr' + (i+1));
+        if(head) head.textContent = pos;
+      });
+    }
+    rank();
   })();
 </script>
 </body>
