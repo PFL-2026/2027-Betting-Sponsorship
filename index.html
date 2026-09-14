@@ -508,14 +508,15 @@
 
     <div class="ledger">
       <div class="lg-total">
-        <span class="n">28</span>
-        <span class="l">events in scope for betting</span>
+        <span class="n evtotal">&mdash;</span>
+        <span class="l">events across the 2027 slate</span>
       </div>
       <div class="lg-cells">
         <div class="cell"><span class="n">16</span><span class="l">United States<br>10 MMA, 6 boxing</span></div>
         <div class="cell"><span class="n">5</span><span class="l">United Kingdom<br>1 MMA, 4 boxing</span></div>
         <div class="cell"><span class="n">2</span><span class="l">France<br>MMA</span></div>
         <div class="cell"><span class="n">1</span><span class="l">Belgium<br>MMA</span></div>
+        <div class="cell"><span class="n">2</span><span class="l">Middle East<br>MMA</span></div>
         <div class="cell"><span class="n">4 <span>Netflix</span></span><span class="l">Blockbuster<br>venues to confirm</span></div>
       </div>
     </div>
@@ -625,7 +626,7 @@
 
     <div class="ledger">
       <div class="lg-total">
-        <span class="n">30</span>
+        <span class="n evtotal">&mdash;</span>
         <span class="l">events, plus a separate blockbuster pot</span>
       </div>
       <div class="lg-cells">
@@ -765,7 +766,7 @@
   (function(){
     var EDITABLE = [
       '.kicker','h1','.strip h2','.strip .fix','.mast-logo span',
-      '.lg-total .n','.lg-total .l','.cell .n','.cell .l',
+      '.lg-total .l','.cell .n','.cell .l',
       '.principle','.potline','.edithint',
       '.bl-title','.bl-sub','.bl-body p','.bl-body li',
       '.terr .m','.terr .d',
@@ -863,6 +864,24 @@
       td.innerHTML = on ? '\u2013' : '\u2713';
       if(td.closest('table.keytab')) rank();
     }
+
+    function ledgerTotals(){
+      document.querySelectorAll('.ledger').forEach(function(led){
+        var out = led.querySelector('.evtotal');
+        if(!out) return;
+        var sum = 0;
+        led.querySelectorAll('.cell .n').forEach(function(n){
+          var m = (n.textContent || '').match(/\d+/);
+          if(m) sum += parseInt(m[0], 10);
+        });
+        out.textContent = sum;
+      });
+    }
+    ledgerTotals();
+    document.querySelectorAll('.ledger').forEach(function(led){
+      led.addEventListener('input', ledgerTotals);
+      led.addEventListener('blur', ledgerTotals, true);
+    });
 
     function rank(){
       var key = document.querySelector('table.keytab');
