@@ -303,6 +303,20 @@
   .gridtab tr.grp-head td.c-rev{font-size:15.5px;font-weight:800;letter-spacing:-.02em}
   .grade.rank{min-width:28px;text-align:center;font-size:15px;padding:4px 9px}
 
+  .addsec{margin-top:40px;border-top:2px solid var(--ink);padding-top:22px}
+  .sec-h{font-size:18px;font-weight:800;letter-spacing:-.025em;margin:0 0 14px}
+  ul.editlist{margin:0 0 14px;padding:0;list-style:none}
+  ul.editlist li{position:relative;padding-left:16px;margin-bottom:7px;max-width:74ch;font-size:14.5px;line-height:1.5;min-height:1.5em}
+  ul.editlist li:before{content:"";position:absolute;left:0;top:.62em;width:6px;height:1.5px;background:var(--ink)}
+  .addbullet,#exportBtn{
+    appearance:none;background:none;font:inherit;font-size:12px;font-weight:600;
+    color:var(--muted);border:1px solid var(--rule);border-radius:999px;
+    padding:5px 12px;cursor:pointer;white-space:nowrap;
+  }
+  .addbullet:hover,#exportBtn:hover{color:var(--ink);border-color:var(--ink)}
+  .addbullet:focus-visible,#exportBtn:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+  #exportBtn{margin-left:8px;align-self:center}
+  body.locked .addbullet{display:none}
   .keyblock{margin-top:46px;border-top:2px solid var(--ink);padding-top:24px}
   .key-h{font-size:18px;font-weight:800;letter-spacing:-.025em;margin:0}
   .key-sub{font-size:13px;color:var(--muted);margin:6px 0 18px;max-width:70ch}
@@ -340,7 +354,7 @@
     body{background:#fff}
     .sheet{margin:0;padding:0;max-width:none}
     .tabs{display:none}
-    #editToggle{display:none}
+    #editToggle,#exportBtn,.addbullet{display:none}
     [hidden]{display:block !important}
     .block{break-inside:avoid}
     .panel + .panel{break-before:page;padding-top:20px}
@@ -356,6 +370,7 @@
     <button class="tab" role="tab" id="tab-sc" aria-controls="panel-sc" aria-selected="false">2027 sponsorship scenarios</button>
     <button class="tab" role="tab" id="tab-gr" aria-controls="panel-gr" aria-selected="false">2027 sponsorship grid</button>
     <button type="button" id="editToggle" aria-pressed="true">Editing on</button>
+    <button type="button" id="exportBtn">Export HTML</button>
   </div>
 
   <!-- ============ CLOUDBET ============ -->
@@ -866,6 +881,27 @@
 
     <p class="edithint">Blockbuster build-up sits inside each estimate as a separate line on the scenarios tab. It remains an upsell to one partner, ideally the global or US partner.</p>
 
+    <div class="addsec">
+      <h3 class="sec-h" contenteditable="true">Sequencing &amp; Positioning</h3>
+      <ul class="editlist">
+        <li contenteditable="true">US operator budgets for 2027 are set between September and November 2026.</li>
+        <li contenteditable="true">Settle the Cloudbet position before opening regional conversations.</li>
+        <li contenteditable="true">Lead every conversation with the reserved market schedule.</li>
+      </ul>
+      <button type="button" class="addbullet">Add bullet</button>
+    </div>
+
+    <div class="addsec">
+      <h3 class="sec-h" contenteditable="true">High Level Terms</h3>
+      <ul class="editlist">
+        <li contenteditable="true">Term: single season with a 2028 option.</li>
+        <li contenteditable="true">Territory: defined reserved market schedule, with the right to add markets on notice.</li>
+        <li contenteditable="true">Category: online sportsbook and casino only. Predictions, social and content reserved to PFL.</li>
+      </ul>
+      <button type="button" class="addbullet">Add bullet</button>
+    </div>
+
+
     <footer>
       <span>PFL / MVP betting sponsorship, 2027 slate</span>
       <span>Draft for internal discussion</span>
@@ -876,6 +912,14 @@
 </div>
 
 <script>
+  var STORE_KEY = 'pfl2027:v3';
+  (function(){
+    try{
+      var saved = window.localStorage.getItem(STORE_KEY);
+      if(saved){ document.querySelector('.sheet').innerHTML = saved; }
+    }catch(e){}
+  })();
+
   (function(){
     var EDITABLE = [
       '.kicker','h1','.strip h2','.strip .fix','.mast-logo span',
@@ -884,7 +928,7 @@
       '.bl-title','.bl-sub','.bl-body p','.bl-body li',
       '.terr .m','.terr .d',
       '.scen-no','.scen-head h3','.scen-lede',
-      '.key-h','.key-sub','tr.grp-head b','tr.grp-head .sub',
+      '.key-h','.key-sub','tr.grp-head b','tr.grp-head .sub','.sec-h','ul.editlist li',
       'table.stab thead th','table.stab td.c-mkt','table.stab tfoot td:first-child',
       'footer span'
     ].join(',');
@@ -1038,6 +1082,61 @@
     }
     rank();
     gridSync();
+
+    // --- editable bullet lists ---
+    function newBullet(list, after){
+      var li = document.createElement('li');
+      li.setAttribute('contenteditable', document.body.classList.contains('locked') ? 'false' : 'true');
+      li.textContent = '';
+      if(after && after.nextSibling){ list.insertBefore(li, after.nextSibling); }
+      else { list.appendChild(li); }
+      li.focus();
+      return li;
+    }
+    document.querySelectorAll('.addbullet').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var list = btn.parentNode.querySelector('ul.editlist');
+        if(list) newBullet(list);
+      });
+    });
+    document.querySelectorAll('ul.editlist').forEach(function(list){
+      list.addEventListener('keydown', function(e){
+        var li = e.target.closest ? e.target.closest('li') : null;
+        if(!li) return;
+        if(e.key === 'Enter'){ e.preventDefault(); newBullet(list, li); }
+        if(e.key === 'Backspace' && (li.textContent || '').trim() === '' && list.children.length > 1){
+          e.preventDefault();
+          var prev = li.previousElementSibling;
+          li.remove();
+          if(prev) prev.focus();
+        }
+      });
+    });
+
+    // --- autosave ---
+    var saveTimer;
+    function save(){
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(function(){
+        try{ window.localStorage.setItem(STORE_KEY, document.querySelector('.sheet').innerHTML); }catch(e){}
+      }, 400);
+    }
+    document.querySelector('.sheet').addEventListener('input', save);
+    document.querySelector('.sheet').addEventListener('click', save);
+
+    // --- export ---
+    var ex = document.getElementById('exportBtn');
+    if(ex) ex.addEventListener('click', function(){
+      var clone = document.documentElement.cloneNode(true);
+      clone.querySelectorAll('[hidden]').forEach(function(el){ el.setAttribute('hidden',''); });
+      var html = '<!DOCTYPE html>\n' + clone.outerHTML;
+      var blob = new Blob([html], {type:'text/html'});
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'index.html';
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(function(){ URL.revokeObjectURL(a.href); }, 2000);
+    });
   })();
 </script>
 </body>
