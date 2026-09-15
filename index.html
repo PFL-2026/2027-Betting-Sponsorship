@@ -284,6 +284,25 @@
     font-weight:800;font-size:15px;letter-spacing:-.02em;
   }
 
+  table.gridtab{min-width:720px}
+  table.gridtab td{vertical-align:top}
+  table.gridtab tbody.grp{border-left:4px solid var(--s)}
+  table.gridtab tbody.s1{--s:#c2410c}
+  table.gridtab tbody.s2{--s:#0f5566}
+  table.gridtab tbody.s3{--s:#15603a}
+  tr.grp-head td{background:var(--tint);border-top:2px solid var(--ink);border-bottom:1px solid var(--rule);padding:14px 14px 14px 0}
+  tr.grp-head td.c-cat{padding-left:14px;position:relative}
+  tr.grp-head b{display:block;font-size:16px;font-weight:800;letter-spacing:-.025em;line-height:1.2;padding-right:44px}
+  tr.grp-head .sub{display:block;font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.4;padding-right:44px}
+  tr.grp-head .pref{position:absolute;right:14px;top:14px}
+  tr.cat td{padding:9px 14px 9px 0;font-size:14px}
+  tr.cat td.c-cat{padding-left:14px;font-weight:600;letter-spacing:-.01em}
+  .c-cat{width:26%;min-width:170px}
+  .c-scope{width:34%;min-width:200px;color:#33373c;font-size:13.5px}
+  .gridtab .c-rev{width:130px;font-size:14px}
+  .gridtab tr.grp-head td.c-rev{font-size:15.5px;font-weight:800;letter-spacing:-.02em}
+  .grade.rank{min-width:28px;text-align:center;font-size:15px;padding:4px 9px}
+
   .keyblock{margin-top:46px;border-top:2px solid var(--ink);padding-top:24px}
   .key-h{font-size:18px;font-weight:800;letter-spacing:-.025em;margin:0}
   .key-sub{font-size:13px;color:var(--muted);margin:6px 0 18px;max-width:70ch}
@@ -335,6 +354,7 @@
     <button class="tab" role="tab" id="tab-cb" aria-controls="panel-cb" aria-selected="true">Cloudbet structure</button>
     <button class="tab" role="tab" id="tab-mk" aria-controls="panel-mk" aria-selected="false">Market approach</button>
     <button class="tab" role="tab" id="tab-sc" aria-controls="panel-sc" aria-selected="false">2027 sponsorship scenarios</button>
+    <button class="tab" role="tab" id="tab-gr" aria-controls="panel-gr" aria-selected="false">2027 sponsorship grid</button>
     <button type="button" id="editToggle" aria-pressed="true">Editing on</button>
   </div>
 
@@ -657,6 +677,7 @@
         </thead>
         <tbody>
           <tr><td class="c-mkt"><b>Global exclusive</b><span>All 26 events</span></td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">&#10003;</td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">&#10003;</td><td contenteditable="true">Cloudbet, Stake, Rollbit, 1xBet</td><td class="c-rev" contenteditable="true">$6,000,000</td></tr>
+          <tr><td class="c-mkt"><b>US &mdash; predictions</b><span>16 events, digital and social only</span></td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">&#10003;</td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">&#10003;</td><td contenteditable="true">Kalshi, Polymarket, Predict Street, Railbird</td><td class="c-rev" contenteditable="true">$1,000,000</td></tr>
           <tr><td class="c-mkt"><b>Content partnerships</b><span>Non-exclusive, multi-market</span></td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">&#10003;</td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">&#10003;</td><td contenteditable="true">Wildz, Sportsbet, Betano</td><td class="c-rev" contenteditable="true">$600,000</td></tr>
           <tr class="pot"><td class="c-mkt"><b>Blockbuster build-up</b><span>4 events, excl. event night</span></td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">&#10003;</td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">&#10003;</td><td contenteditable="true">Upsell to the global partner, subject to Netflix clearance</td><td class="c-rev" contenteditable="true">$1,200,000</td></tr>
         </tbody>
@@ -760,6 +781,98 @@
   </section>
 
 
+
+  <!-- ============ CONSOLIDATED GRID ============ -->
+  <section class="panel" id="panel-gr" role="tabpanel" aria-labelledby="tab-gr" hidden>
+
+    <div class="mast">
+      <div>
+        <p class="kicker">PFL / MVP 2027 season</p>
+        <h1>2027 sponsorship grid</h1>
+      </div>
+    </div>
+
+    <p class="potline">All three scenarios side by side, split by sponsorship category. Every cell is editable, and each scenario header totals the rows beneath it. Preference carries across from the scoring key.</p>
+
+    <div class="tw">
+    <table class="stab gridtab">
+      <thead>
+        <tr>
+          <th class="c-cat">Category</th>
+          <th class="c-scope">Example partners</th>
+          <th class="c-rev">Est. revenue</th>
+          <th class="c-rev">Benchmark</th>
+        </tr>
+      </thead>
+
+      <tbody class="grp s1">
+        <tr class="grp-head">
+          <td class="c-cat" colspan="2">
+            <span class="pref"><span class="grade g1 rank gr1">&mdash;</span></span>
+            <b>1. Hail Mary</b>
+            <span class="sub">One global partner, every event</span>
+          </td>
+          <td class="c-rev gridrev g-s1">&mdash;</td>
+          <td class="c-rev gridbm b-s1">&mdash;</td>
+        </tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">Global betting, exclusive</td><td class="c-scope" contenteditable="true">Cloudbet, Stake, Rollbit, 1xBet</td><td class="c-rev est" contenteditable="true">$6,000,000</td><td class="c-rev bm" contenteditable="true">&mdash;</td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">US predictions</td><td class="c-scope" contenteditable="true">Kalshi, Polymarket, Predict Street, Railbird</td><td class="c-rev est" contenteditable="true">$1,000,000</td><td class="c-rev bm" contenteditable="true">&mdash;</td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">Content partnerships</td><td class="c-scope" contenteditable="true">Wildz, Sportsbet, Betano</td><td class="c-rev est" contenteditable="true">$600,000</td><td class="c-rev bm" contenteditable="true">&mdash;</td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">Blockbuster build-up</td><td class="c-scope" contenteditable="true">Global partner, upsell</td><td class="c-rev est" contenteditable="true">$1,200,000</td><td class="c-rev bm" contenteditable="true">&mdash;</td></tr>
+      </tbody>
+
+      <tbody class="grp s2">
+        <tr class="grp-head">
+          <td class="c-cat" colspan="2">
+            <span class="pref"><span class="grade g2 rank gr2">&mdash;</span></span>
+            <b>2. Global plus regional fill</b>
+            <span class="sub">Global partner, every market filled locally, US split three ways</span>
+          </td>
+          <td class="c-rev gridrev g-s2">&mdash;</td>
+          <td class="c-rev gridbm b-s2">&mdash;</td>
+        </tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">Global, rest of world</td><td class="c-scope" contenteditable="true">Cloudbet, Betano, Superbet</td><td class="c-rev est" contenteditable="true">$2,000,000</td><td class="c-rev bm" contenteditable="true">&mdash;</td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">US sports betting</td><td class="c-scope" contenteditable="true">betMGM, Fanatics, DraftKings, BetRivers</td><td class="c-rev est" contenteditable="true">$2,500,000</td><td class="c-rev bm" contenteditable="true">&mdash;</td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">US predictions</td><td class="c-scope" contenteditable="true">Kalshi, Polymarket, Predict Street, Railbird</td><td class="c-rev est" contenteditable="true">$1,500,000</td><td class="c-rev bm" contenteditable="true">&mdash;</td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">US social casino</td><td class="c-scope" contenteditable="true">Stake.us, McLuck, High 5, Fliff</td><td class="c-rev est" contenteditable="true">$500,000</td><td class="c-rev bm" contenteditable="true">&mdash;</td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">United Kingdom</td><td class="c-scope" contenteditable="true">NetBet, Betfred, Sky Bet, LiveScore Bet</td><td class="c-rev est" contenteditable="true">$1,200,000</td><td class="c-rev bm" contenteditable="true">&mdash;</td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">France</td><td class="c-scope" contenteditable="true">PokerStars, NetBet, Winamax, Unibet</td><td class="c-rev est" contenteditable="true">$500,000</td><td class="c-rev bm" contenteditable="true">&mdash;</td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">Belgium</td><td class="c-scope" contenteditable="true">Napoleon Sports, Golden Palace, Unibet BE</td><td class="c-rev est" contenteditable="true">$150,000</td><td class="c-rev bm" contenteditable="true">&mdash;</td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">Content partnerships</td><td class="c-scope" contenteditable="true">Wildz, Sportsbet</td><td class="c-rev est" contenteditable="true">$400,000</td><td class="c-rev bm" contenteditable="true">&mdash;</td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">Blockbuster build-up</td><td class="c-scope" contenteditable="true">US or global partner, upsell</td><td class="c-rev est" contenteditable="true">$1,000,000</td><td class="c-rev bm" contenteditable="true">&mdash;</td></tr>
+      </tbody>
+
+      <tbody class="grp s3">
+        <tr class="grp-head">
+          <td class="c-cat" colspan="2">
+            <span class="pref"><span class="grade g3 rank gr3">&mdash;</span></span>
+            <b>3. Global plus deep US partner</b>
+            <span class="sub">As Scenario 2, US betting and predictions combined</span>
+          </td>
+          <td class="c-rev gridrev g-s3">&mdash;</td>
+          <td class="c-rev gridbm b-s3">&mdash;</td>
+        </tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">Global, rest of world</td><td class="c-scope" contenteditable="true">Cloudbet, Betano, Superbet</td><td class="c-rev est" contenteditable="true">$2,000,000</td><td class="c-rev bm" contenteditable="true">&mdash;</td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">US betting and predictions</td><td class="c-scope" contenteditable="true">betMGM, DraftKings, Fanatics, Kalshi</td><td class="c-rev est" contenteditable="true">$3,800,000</td><td class="c-rev bm" contenteditable="true">&mdash;</td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">US social casino</td><td class="c-scope" contenteditable="true">Stake.us, McLuck, High 5, Fliff</td><td class="c-rev est" contenteditable="true">$500,000</td><td class="c-rev bm" contenteditable="true">&mdash;</td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">United Kingdom</td><td class="c-scope" contenteditable="true">NetBet, Betfred, Sky Bet, LiveScore Bet</td><td class="c-rev est" contenteditable="true">$1,200,000</td><td class="c-rev bm" contenteditable="true">&mdash;</td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">France</td><td class="c-scope" contenteditable="true">PokerStars, NetBet, Winamax, Unibet</td><td class="c-rev est" contenteditable="true">$500,000</td><td class="c-rev bm" contenteditable="true">&mdash;</td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">Belgium</td><td class="c-scope" contenteditable="true">Napoleon Sports, Golden Palace, Unibet BE</td><td class="c-rev est" contenteditable="true">$150,000</td><td class="c-rev bm" contenteditable="true">&mdash;</td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">Content partnerships</td><td class="c-scope" contenteditable="true">Wildz, Sportsbet</td><td class="c-rev est" contenteditable="true">$400,000</td><td class="c-rev bm" contenteditable="true">&mdash;</td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">Blockbuster build-up</td><td class="c-scope" contenteditable="true">US partner, upsell</td><td class="c-rev est" contenteditable="true">$1,100,000</td><td class="c-rev bm" contenteditable="true">&mdash;</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <p class="edithint">Blockbuster build-up sits inside each estimate as a separate line on the scenarios tab. It remains an upsell to one partner, ideally the global or US partner.</p>
+
+    <footer>
+      <span>PFL / MVP betting sponsorship, 2027 slate</span>
+      <span>Draft for internal discussion</span>
+    </footer>
+
+  </section>
+
 </div>
 
 <script>
@@ -771,7 +884,7 @@
       '.bl-title','.bl-sub','.bl-body p','.bl-body li',
       '.terr .m','.terr .d',
       '.scen-no','.scen-head h3','.scen-lede',
-      '.key-h','.key-sub',
+      '.key-h','.key-sub','tr.grp-head b','tr.grp-head .sub',
       'table.stab thead th','table.stab td.c-mkt','table.stab tfoot td:first-child',
       'footer span'
     ].join(',');
@@ -839,10 +952,13 @@
         }
       });
     });
-    document.querySelectorAll('table.stab tbody td.c-rev').forEach(function(td){
+    var gt = document.querySelector('.gridtab');
+    if(gt) gt.addEventListener('input', gridSync);
+
+    document.querySelectorAll('table.stab tbody td.c-rev[contenteditable]').forEach(function(td){
       td.addEventListener('blur', function(){
         var raw = (td.textContent || '').replace(/[^0-9.]/g,'');
-        if(raw === ''){ td.textContent = ''; return; }
+        if(raw === ''){ td.textContent = td.closest('.gridtab') ? '\u2014' : ''; recalcAll(); return; }
         var v = parseFloat(raw);
         if(isNaN(v)) return;
         td.textContent = '$' + Math.round(v).toLocaleString('en-US');
@@ -853,6 +969,7 @@
       document.querySelectorAll('table.stab').forEach(function(t){
         if(t.querySelector('tfoot td.total')) recalc(t);
       });
+      gridSync();
     }
 
     function toggle(td){
@@ -883,6 +1000,21 @@
       led.addEventListener('blur', ledgerTotals, true);
     });
 
+    function gridSync(){
+      document.querySelectorAll('.gridtab tbody.grp').forEach(function(grp){
+        function total(sel){
+          var sum = 0, any = false;
+          grp.querySelectorAll('tr.cat td.' + sel).forEach(function(td){
+            var v = parseFloat((td.textContent || '').replace(/[^0-9.]/g,''));
+            if(!isNaN(v)){ sum += v; any = true; }
+          });
+          return any ? ('$' + Math.round(sum).toLocaleString('en-US')) : '\u2014';
+        }
+        var e = grp.querySelector('.gridrev'); if(e) e.textContent = total('est');
+        var b = grp.querySelector('.gridbm');  if(b) b.textContent = total('bm');
+      });
+    }
+
     function rank(){
       var key = document.querySelector('table.keytab');
       if(!key) return;
@@ -900,9 +1032,12 @@
         if(badge) badge.textContent = pos;
         var head = document.querySelector('.hr' + (i+1));
         if(head) head.textContent = pos;
+        var g = document.querySelector('.gr' + (i+1));
+        if(g) g.textContent = pos;
       });
     }
     rank();
+    gridSync();
   })();
 </script>
 </body>
