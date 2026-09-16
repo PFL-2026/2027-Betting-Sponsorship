@@ -369,7 +369,6 @@
 
   <div class="tabs" role="tablist" aria-label="One-pagers">
     <button class="tab" role="tab" id="tab-gr" aria-controls="panel-gr" aria-selected="true">2027 sponsorship grid</button>
-    <button class="tab" role="tab" id="tab-sc" aria-controls="panel-sc" aria-selected="false">2027 sponsorship scenarios</button>
     <button class="tab" role="tab" id="tab-cb" aria-controls="panel-cb" aria-selected="false">Cloudbet structure</button>
     <button class="tab" role="tab" id="tab-mk" aria-controls="panel-mk" aria-selected="false">Market approach</button>
     <button type="button" id="editToggle" aria-pressed="true">Editing on</button>
@@ -386,7 +385,22 @@
       </div>
     </div>
 
-    <p class="potline" contenteditable="true">All three scenarios split by sponsorship category. Preference carries across from the scoring key in previous tab.</p>
+    <div class="ledger">
+      <div class="lg-total">
+        <span class="n evtotal">25</span>
+        <span class="l" contenteditable="true">events across the 2027 slate</span>
+      </div>
+      <div class="lg-cells">
+        <div class="cell"><span class="n" contenteditable="true">15</span><span class="l" contenteditable="true">United States<br>11 MMA, 4 boxing</span></div>
+        <div class="cell"><span class="n" contenteditable="true">4</span><span class="l" contenteditable="true">United Kingdom<br>1 MMA, 3 boxing</span></div>
+        <div class="cell"><span class="n" contenteditable="true">1</span><span class="l" contenteditable="true">France<br>MMA</span></div>
+        <div class="cell"><span class="n" contenteditable="true">1</span><span class="l" contenteditable="true">Belgium<br>MMA</span></div>
+        <div class="cell"><span class="n" contenteditable="true">2</span><span class="l" contenteditable="true">Middle East<br>MMA</span></div>
+        <div class="cell"><span class="n" contenteditable="true">2 <span>Netflix</span></span><span class="l" contenteditable="true">Blockbuster<br>venues to confirm</span></div>
+      </div>
+    </div>
+
+    <p class="potline" contenteditable="true">All three scenarios split by sponsorship category. Preference carries across from the scoring key below.</p>
 
     <div class="tw">
     <table class="stab gridtab">
@@ -461,6 +475,31 @@
 
     <p class="edithint" contenteditable="true"><br></p>
 
+    <div class="keyblock">
+      <h3 class="key-h" contenteditable="true">Scoring key</h3>
+      <p class="key-sub" contenteditable="true">Tick the factors each scenario delivers. The preference rank is a straight count of ticks, so it updates as you change them.</p>
+      <div class="tw">
+      <table class="stab keytab">
+        <thead>
+          <tr><th class="c-mkt" contenteditable="true">Factor</th><th class="c-t" contenteditable="true">Scenario 1</th><th class="c-t" contenteditable="true">Scenario 2</th><th class="c-t" contenteditable="true">Scenario 3</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="c-mkt" contenteditable="true">Revenue potential</td><td class="c-t k1 tick y" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t k2 tick n" tabindex="0" role="button" aria-pressed="false">–</td><td class="c-t k3 tick n" tabindex="0" role="button" aria-pressed="false">–</td></tr>
+          <tr><td class="c-mkt" contenteditable="true">Regulatory safety</td><td class="c-t k1 n tick" tabindex="0" role="button" aria-pressed="false">–</td><td class="c-t k2 y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t k3 y tick" tabindex="0" role="button" aria-pressed="true">✓</td></tr>
+          <tr><td class="c-mkt" contenteditable="true">Partner impact and depth</td><td class="c-t k1 tick y" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t k2 n tick" tabindex="0" role="button" aria-pressed="false">–</td><td class="c-t k3 tick n" tabindex="0" role="button" aria-pressed="false">–</td></tr>
+          <tr><td class="c-mkt" contenteditable="true">Share of voice protection</td><td class="c-t k1 y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t k2 n tick" tabindex="0" role="button" aria-pressed="false">–</td><td class="c-t k3 tick y" tabindex="0" role="button" aria-pressed="true">✓</td></tr>
+          <tr><td class="c-mkt" contenteditable="true">Fan interaction with brands</td><td class="c-t k1 n tick" tabindex="0" role="button" aria-pressed="false">–</td><td class="c-t k2 y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t k3 y tick" tabindex="0" role="button" aria-pressed="true">✓</td></tr>
+          <tr><td class="c-mkt" contenteditable="true">Ease of servicing</td><td class="c-t k1 y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t k2 n tick" tabindex="0" role="button" aria-pressed="false">–</td><td class="c-t k3 n tick" tabindex="0" role="button" aria-pressed="false">–</td></tr>
+          <tr><td class="c-mkt" contenteditable="true">2028 optionality</td><td class="c-t k1 tick y" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t k2 y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t k3 y tick" tabindex="0" role="button" aria-pressed="true">✓</td></tr>
+        </tbody>
+        <tfoot>
+          <tr class="tickrow"><td contenteditable="true">Factors delivered</td><td class="c-t tally t1">5</td><td class="c-t tally t2">3</td><td class="c-t tally t3">4</td></tr>
+          <tr><td contenteditable="true">Preference</td><td class="c-t"><span class="grade g1 rank r1">1</span></td><td class="c-t"><span class="grade g2 rank r2">3</span></td><td class="c-t"><span class="grade g3 rank r3">2</span></td></tr>
+        </tfoot>
+      </table>
+      </div>
+    </div>
+
     <div class="addsec">
       <h3 class="sec-h" contenteditable="true">Sequencing &amp; Positioning</h3>
       <ul class="editlist">
@@ -489,150 +528,6 @@
 
   </section>
 
-  <section class="panel" id="panel-sc" role="tabpanel" aria-labelledby="tab-sc" hidden="">
-
-    <div class="mast">
-      <div>
-        <p class="kicker" contenteditable="true">MVP 2027 season</p>
-        <h1 contenteditable="true">2027 sponsorship scenarios</h1>
-      </div>
-    </div>
-
-    <div class="ledger">
-      <div class="lg-total">
-        <span class="n evtotal">25</span>
-        <span class="l" contenteditable="true">events, plus a separate blockbuster pot</span>
-      </div>
-      <div class="lg-cells">
-        <div class="cell"><span class="n" contenteditable="true">16</span><span class="l" contenteditable="true">MMA<br>11 US, 1 UK, 1 Belgium, 1 France, 2 Middle East</span></div>
-        <div class="cell"><span class="n" contenteditable="true">7</span><span class="l" contenteditable="true">Boxing<br>4 US, 3 UK</span></div>
-        <div class="cell"><span class="n" contenteditable="true">2&nbsp;<span>Netflix</span></span><span class="l" contenteditable="true">Blockbuster<br>locations to confirm</span></div>
-      </div>
-    </div>
-
-    <p class="potline" contenteditable="true"><b>The blockbuster pot sits outside every scenario.</b> Netflix holds fight-night sponsorship on the four blockbuster events, so what we sell is the build-up: fight week, weigh-in, press conference, fighter content and owned social. It is a separate budget line and an upsell to one partner within whichever scenario we run, ideally the global or the US partner.</p>
-
-    <p class="edithint" contenteditable="true">Tick boxes, example brands, revenue figures and the scoring key are all editable in the browser. Click a tick to toggle it; totals recalculate as you type. Changes are not saved on refresh.</p>
-
-    <!-- SCENARIO 1 -->
-    <div class="scen s1">
-      <div class="scen-head">
-        <div>
-          <span class="scen-no" contenteditable="true">Scenario 1</span>
-          <h3 contenteditable="true">Hail Mary: one global partner, everything</h3>
-        </div>
-        <span class="grade headrank hr1">1</span>
-      </div>
-      <p class="scen-lede" contenteditable="true">A single global betting partner — crypto, web3 or grey market — takes full exclusive access to every event across MMA and boxing, in cage and ring, on broadcast and across all social and digital. Content partnerships run alongside.</p>
-      <div class="tw">
-      <table class="stab">
-        <thead>
-          <tr><th class="c-mkt" contenteditable="true">Market</th><th class="c-t" contenteditable="true">MMA</th><th class="c-t" contenteditable="true">Boxing</th><th contenteditable="true">Example brands</th><th class="c-rev" contenteditable="true">Est. revenue (US$)</th></tr>
-        </thead>
-        <tbody>
-          <tr><td class="c-mkt" contenteditable="true"><b>Global exclusive</b><span>All 26 events</span></td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td contenteditable="true">Cloudbet, Stake, Rollbit, 1xBet</td><td class="c-rev" contenteditable="true">$6,000,000</td></tr>
-          <tr><td class="c-mkt" contenteditable="true"><b>US — predictions</b><span>16 events, digital and social only</span></td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td contenteditable="true">Kalshi, Polymarket, Predict Street, Railbird</td><td class="c-rev" contenteditable="true">$1,000,000</td></tr>
-          <tr><td class="c-mkt" contenteditable="true"><b>Content partnerships</b><span>Non-exclusive, multi-market</span></td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td contenteditable="true">Wildz, Sportsbet, Betano</td><td class="c-rev" contenteditable="true">$600,000</td></tr>
-          <tr class="pot"><td class="c-mkt" contenteditable="true"><b>Blockbuster build-up</b><span>4 events, excl. event night</span></td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td contenteditable="true">Upsell to the global partner, subject to Netflix clearance</td><td class="c-rev" contenteditable="true">$1,200,000</td></tr>
-        </tbody>
-        <tfoot><tr><td colspan="4" contenteditable="true">Total</td><td class="c-rev total">$8,800,000</td></tr></tfoot>
-      </table>
-      </div>
-    </div>
-
-    <!-- SCENARIO 2 -->
-    <div class="scen s2">
-      <div class="scen-head">
-        <div>
-          <span class="scen-no" contenteditable="true">Scenario 2</span>
-          <h3 contenteditable="true">Global partner plus full regional fill</h3>
-        </div>
-        <span class="grade headrank hr2">3</span>
-      </div>
-      <p class="scen-lede" contenteditable="true">Close to the current model. One global betting partner on virtual broadcast overlay, non-event-specific social and ambassadors. Every event market then filled with a regional partner holding exclusive access across all channels in their territory. The US splits into three categories.</p>
-      <div class="tw">
-      <table class="stab">
-        <thead>
-          <tr><th class="c-mkt" contenteditable="true">Market</th><th class="c-t" contenteditable="true">MMA</th><th class="c-t" contenteditable="true">Boxing</th><th contenteditable="true">Example brands</th><th class="c-rev" contenteditable="true">Est. revenue (US$)</th></tr>
-        </thead>
-        <tbody>
-          <tr><td class="c-mkt" contenteditable="true"><b>Global / rest of world</b><span>Virtual, social, ambassadors</span></td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td contenteditable="true">Cloudbet, Betano, Superbet</td><td class="c-rev" contenteditable="true">$2,000,000</td></tr>
-          <tr><td class="c-mkt" contenteditable="true"><b>US — sports betting</b><span>16 events</span></td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td contenteditable="true">betMGM, Fanatics, DraftKings, BetRivers</td><td class="c-rev" contenteditable="true">$2,500,000</td></tr>
-          <tr><td class="c-mkt" contenteditable="true"><b>US — predictions</b><span>16 events, all 50 states</span></td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td contenteditable="true">Kalshi, Polymarket, Predict Street, Railbird</td><td class="c-rev" contenteditable="true">$1,500,000</td></tr>
-          <tr><td class="c-mkt" contenteditable="true"><b>US — social casino</b><span>16 events</span></td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td contenteditable="true">Stake.us, McLuck, High 5, Fliff</td><td class="c-rev" contenteditable="true">$500,000</td></tr>
-          <tr><td class="c-mkt" contenteditable="true"><b>United Kingdom</b><span>1 MMA, 3 boxing</span></td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td contenteditable="true">NetBet, Mr Q, Midnite, Betfred</td><td class="c-rev" contenteditable="true">$400,000</td></tr>
-          <tr><td class="c-mkt" contenteditable="true"><b>France</b><span>1 MMA event</span></td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t n tick" tabindex="0" role="button" aria-pressed="false">–</td><td contenteditable="true">PokerStars, NetBet, Winamax, Unibet</td><td class="c-rev" contenteditable="true">$500,000</td></tr>
-          <tr><td class="c-mkt" contenteditable="true"><b>Belgium</b><span>1 MMA event</span></td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t n tick" tabindex="0" role="button" aria-pressed="false">–</td><td contenteditable="true">Napoleon Sports, Golden Palace, Unibet BE</td><td class="c-rev" contenteditable="true">$150,000</td></tr>
-          <tr><td class="c-mkt" contenteditable="true"><b>Content partnerships</b><span>Non-exclusive, fill markets</span></td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td contenteditable="true">Wildz, Sportsbet</td><td class="c-rev" contenteditable="true">$400,000</td></tr>
-          <tr class="pot"><td class="c-mkt" contenteditable="true"><b>Blockbuster build-up</b><span>4 events, excl. event night</span></td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td contenteditable="true">Upsell to the US or global partner</td><td class="c-rev" contenteditable="true">$1,000,000</td></tr>
-        </tbody>
-        <tfoot><tr><td colspan="4" contenteditable="true">Total</td><td class="c-rev total">$8,950,000</td></tr></tfoot>
-      </table>
-      </div>
-    </div>
-
-    <!-- SCENARIO 3 -->
-    <div class="scen s3">
-      <div class="scen-head">
-        <div>
-          <span class="scen-no" contenteditable="true">Scenario 3</span>
-          <h3 contenteditable="true">Global partner, regional fill, one deep US partner</h3>
-        </div>
-        <span class="grade headrank hr3">2</span>
-      </div>
-      <p class="scen-lede" contenteditable="true">As Scenario 2, but the US goes to a single partner combining sports betting and predictions under one agreement, with social casino filled separately. Fewer US relationships, run deeper.</p>
-      <div class="tw">
-      <table class="stab">
-        <thead>
-          <tr><th class="c-mkt" contenteditable="true">Market</th><th class="c-t" contenteditable="true">MMA</th><th class="c-t" contenteditable="true">Boxing</th><th contenteditable="true">Example brands</th><th class="c-rev" contenteditable="true">Est. revenue (US$)</th></tr>
-        </thead>
-        <tbody>
-          <tr><td class="c-mkt" contenteditable="true"><b>Global / rest of world</b><span>Virtual, social, ambassadors</span></td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td contenteditable="true">Cloudbet, Betano, Superbet</td><td class="c-rev" contenteditable="true">$2,000,000</td></tr>
-          <tr><td class="c-mkt" contenteditable="true"><b>US — betting and predictions</b><span>16 events, single partner</span></td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td contenteditable="true">betMGM, DraftKings, Fanatics, Kalshi</td><td class="c-rev" contenteditable="true">$3,800,000</td></tr>
-          <tr><td class="c-mkt" contenteditable="true"><b>US — social casino</b><span>16 events</span></td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td contenteditable="true">Stake.us, McLuck, High 5, Fliff</td><td class="c-rev" contenteditable="true">$500,000</td></tr>
-          <tr><td class="c-mkt" contenteditable="true"><b>United Kingdom</b><span>1 MMA, 3 boxing</span></td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td contenteditable="true">NetBet, Mr Q, Midnite, Betfred</td><td class="c-rev" contenteditable="true">$1,200,000</td></tr>
-          <tr><td class="c-mkt" contenteditable="true"><b>France</b><span><span style="color: rgb(99, 103, 109); display: inline !important;">1 MMA event</span></span></td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t n tick" tabindex="0" role="button" aria-pressed="false">–</td><td contenteditable="true">PokerStars, NetBet, Winamax, Unibet</td><td class="c-rev" contenteditable="true">$500,000</td></tr>
-          <tr><td class="c-mkt" contenteditable="true"><b>Belgium</b><span>1 MMA event</span></td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t n tick" tabindex="0" role="button" aria-pressed="false">–</td><td contenteditable="true">Napoleon Sports, Golden Palace, Unibet BE</td><td class="c-rev" contenteditable="true">$150,000</td></tr>
-          <tr><td class="c-mkt" contenteditable="true"><b>Content partnerships</b><span>Non-exclusive, fill markets</span></td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td contenteditable="true">Wildz, Sportsbet</td><td class="c-rev" contenteditable="true">$400,000</td></tr>
-          <tr class="pot"><td class="c-mkt" contenteditable="true"><b>Blockbuster build-up</b><span>4 events, excl. event night</span></td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td contenteditable="true">Upsell to the US partner</td><td class="c-rev" contenteditable="true">$1,100,000</td></tr>
-        </tbody>
-        <tfoot><tr><td colspan="4" contenteditable="true">Total</td><td class="c-rev total">$9,650,000</td></tr></tfoot>
-      </table>
-      </div>
-    </div>
-
-    <!-- KEY -->
-    <div class="keyblock">
-      <h3 class="key-h" contenteditable="true">Scoring key</h3>
-      <p class="key-sub" contenteditable="true">Tick the factors each scenario delivers. The preference rank is a straight count of ticks, so it updates as you change them.</p>
-      <div class="tw">
-      <table class="stab keytab">
-        <thead>
-          <tr><th class="c-mkt" contenteditable="true">Factor</th><th class="c-t" contenteditable="true">Scenario 1</th><th class="c-t" contenteditable="true">Scenario 2</th><th class="c-t" contenteditable="true">Scenario 3</th></tr>
-        </thead>
-        <tbody>
-          <tr><td class="c-mkt" contenteditable="true">Revenue potential</td><td class="c-t k1 tick y" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t k2 tick n" tabindex="0" role="button" aria-pressed="false">–</td><td class="c-t k3 tick n" tabindex="0" role="button" aria-pressed="false">–</td></tr>
-          <tr><td class="c-mkt" contenteditable="true">Regulatory safety</td><td class="c-t k1 n tick" tabindex="0" role="button" aria-pressed="false">–</td><td class="c-t k2 y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t k3 y tick" tabindex="0" role="button" aria-pressed="true">✓</td></tr>
-          <tr><td class="c-mkt" contenteditable="true">Partner impact and depth</td><td class="c-t k1 tick y" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t k2 n tick" tabindex="0" role="button" aria-pressed="false">–</td><td class="c-t k3 tick n" tabindex="0" role="button" aria-pressed="false">–</td></tr>
-          <tr><td class="c-mkt" contenteditable="true">Share of voice protection</td><td class="c-t k1 y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t k2 n tick" tabindex="0" role="button" aria-pressed="false">–</td><td class="c-t k3 tick y" tabindex="0" role="button" aria-pressed="true">✓</td></tr>
-          <tr><td class="c-mkt" contenteditable="true">Fan interaction with brands</td><td class="c-t k1 n tick" tabindex="0" role="button" aria-pressed="false">–</td><td class="c-t k2 y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t k3 y tick" tabindex="0" role="button" aria-pressed="true">✓</td></tr>
-          <tr><td class="c-mkt" contenteditable="true">Ease of servicing</td><td class="c-t k1 y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t k2 n tick" tabindex="0" role="button" aria-pressed="false">–</td><td class="c-t k3 n tick" tabindex="0" role="button" aria-pressed="false">–</td></tr>
-          <tr><td class="c-mkt" contenteditable="true">2028 optionality</td><td class="c-t k1 tick y" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t k2 y tick" tabindex="0" role="button" aria-pressed="true">✓</td><td class="c-t k3 y tick" tabindex="0" role="button" aria-pressed="true">✓</td></tr>
-        </tbody>
-        <tfoot>
-          <tr class="tickrow"><td contenteditable="true">Factors delivered</td><td class="c-t tally t1">5</td><td class="c-t tally t2">3</td><td class="c-t tally t3">4</td></tr>
-          <tr><td contenteditable="true">Preference</td><td class="c-t"><span class="grade g1 rank r1">1</span></td><td class="c-t"><span class="grade g2 rank r2">3</span></td><td class="c-t"><span class="grade g3 rank r3">2</span></td></tr>
-        </tfoot>
-      </table>
-      </div>
-    </div>
-
-    <footer>
-      <span contenteditable="true">PFL / MVP betting sponsorship, 2027 slate</span>
-      <span contenteditable="true">Draft for internal discussion</span>
-    </footer>
-
-  </section>
 
   <section class="panel" id="panel-cb" role="tabpanel" aria-labelledby="tab-cb" hidden="">
 
@@ -802,17 +697,18 @@
 
     <div class="ledger">
       <div class="lg-total">
-        <span class="n evtotal">30</span>
+        <span class="n evtotal">25</span>
         <span class="l" contenteditable="true">events across the 2027 slate</span>
       </div>
       <div class="lg-cells">
-        <div class="cell"><span class="n" contenteditable="true">16</span><span class="l" contenteditable="true">United States<br>10 MMA, 6 boxing</span></div>
-        <div class="cell"><span class="n" contenteditable="true">5</span><span class="l" contenteditable="true">United Kingdom<br>1 MMA, 4 boxing</span></div>
-        <div class="cell"><span class="n" contenteditable="true">2</span><span class="l" contenteditable="true">France<br>MMA</span></div>
+        <div class="cell"><span class="n" contenteditable="true">15</span><span class="l" contenteditable="true">United States<br>11 MMA, 4 boxing</span></div>
+        <div class="cell"><span class="n" contenteditable="true">4</span><span class="l" contenteditable="true">United Kingdom<br>1 MMA, 3 boxing</span></div>
+        <div class="cell"><span class="n" contenteditable="true">1</span><span class="l" contenteditable="true">France<br>MMA</span></div>
         <div class="cell"><span class="n" contenteditable="true">1</span><span class="l" contenteditable="true">Belgium<br>MMA</span></div>
         <div class="cell"><span class="n" contenteditable="true">2</span><span class="l" contenteditable="true">Middle East<br>MMA</span></div>
-        <div class="cell"><span class="n" contenteditable="true">4 <span>Netflix</span></span><span class="l" contenteditable="true">Blockbuster<br>venues to confirm</span></div>
+        <div class="cell"><span class="n" contenteditable="true">2 <span>Netflix</span></span><span class="l" contenteditable="true">Blockbuster<br>venues to confirm</span></div>
       </div>
+    </div>
     </div>
 
     <p class="principle" contenteditable="true">Sell the territory first. Fill everywhere else with <em>one standard package</em>, sold repeatedly rather than negotiated deal by deal.</p>
@@ -919,7 +815,7 @@
 </div>
 
 <script>
-  var STORE_KEY = 'pfl2027:v5';
+  var STORE_KEY = 'pfl2027:v7';
   (function(){
     try{
       var saved = window.localStorage.getItem(STORE_KEY);
@@ -1046,10 +942,17 @@
         out.textContent = sum;
       });
     }
+    function mirrorLedgers(src){
+      var html = src.innerHTML;
+      document.querySelectorAll('.ledger').forEach(function(other){
+        if(other !== src && other.innerHTML !== html){ other.innerHTML = html; }
+      });
+      ledgerTotals();
+    }
     ledgerTotals();
     document.querySelectorAll('.ledger').forEach(function(led){
-      led.addEventListener('input', ledgerTotals);
-      led.addEventListener('blur', ledgerTotals, true);
+      led.addEventListener('input', function(){ mirrorLedgers(led); });
+      led.addEventListener('blur', function(){ mirrorLedgers(led); }, true);
     });
 
     function gridSync(){
