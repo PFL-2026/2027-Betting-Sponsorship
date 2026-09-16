@@ -283,7 +283,7 @@
     font-weight:800;font-size:15px;letter-spacing:-.02em;
   }
 
-  table.gridtab{min-width:720px}
+  table.gridtab{min-width:920px}
   table.gridtab td{vertical-align:top}
   table.gridtab tbody.grp{border-left:4px solid var(--s)}
   table.gridtab tbody.s1{--s:#c2410c}
@@ -301,6 +301,10 @@
   .gridtab .c-rev{width:130px;font-size:14px}
   .gridtab tr.grp-head td.c-rev{font-size:15.5px;font-weight:800;letter-spacing:-.02em}
   .grade.rank{min-width:28px;text-align:center;font-size:15px;padding:4px 9px}
+  .c-notes{width:200px;min-width:170px;font-size:13.5px;color:#33373c;line-height:1.45;padding-left:14px !important;border-left:1px solid var(--rule)}
+  th.c-notes{padding-left:14px !important;border-left:1px solid var(--rule)}
+  td.c-notes:empty:before{content:"Add note";color:#b9bdc2}
+  body.locked td.c-notes:empty:before{content:""}
 
   .addsec{margin-top:40px;border-top:2px solid var(--ink);padding-top:22px}
   .sec-h{font-size:18px;font-weight:800;letter-spacing:-.025em;margin:0 0 14px}
@@ -816,6 +820,7 @@
           <th class="c-scope" contenteditable="true">Example partners</th>
           <th class="c-rev" contenteditable="true">Est. revenue</th>
           <th class="c-rev" contenteditable="true">Benchmark</th>
+        <th class="c-notes">Considerations</th>
         </tr>
       </thead>
 
@@ -828,11 +833,11 @@
           </td>
           <td class="c-rev gridrev g-s1">$7,200,000</td>
           <td class="c-rev gridbm b-s1">—</td>
-        </tr>
-        <tr class="cat"><td class="c-cat" contenteditable="true">Global betting, exclusive</td><td class="c-scope" contenteditable="true">Cloudbet, Stake, Duelbits, 1xBet, Sportsbet.io, BC Game</td><td class="c-rev est" contenteditable="true">$5,000,000</td><td class="c-rev bm" contenteditable="true">—</td></tr>
-        <tr class="cat"><td class="c-cat" contenteditable="true">US predictions</td><td class="c-scope" contenteditable="true">Kalshi, Polymarket, Novig, ProphetX</td><td class="c-rev est" contenteditable="true">$1,000,000</td><td class="c-rev bm" contenteditable="true">—</td></tr>
-        <tr class="cat"><td class="c-cat" contenteditable="true">Content partnerships</td><td class="c-scope" contenteditable="true">Wildz, Sportsbet, Betano</td><td class="c-rev est" contenteditable="true">$200,000</td><td class="c-rev bm" contenteditable="true">—</td></tr>
-        <tr class="cat"><td class="c-cat" contenteditable="true">Netflix build-up</td><td class="c-scope" contenteditable="true">Global partner, or US partner, upsell</td><td class="c-rev est" contenteditable="true">$1,000,000</td><td class="c-rev bm" contenteditable="true">—</td></tr>
+        <td class="c-notes" contenteditable="true"></td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">Global betting, exclusive</td><td class="c-scope" contenteditable="true">Cloudbet, Stake, Duelbits, 1xBet, Sportsbet.io, BC Game</td><td class="c-rev est" contenteditable="true">$5,000,000</td><td class="c-rev bm" contenteditable="true">—</td><td class="c-notes" contenteditable="true"></td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">US predictions</td><td class="c-scope" contenteditable="true">Kalshi, Polymarket, Novig, ProphetX</td><td class="c-rev est" contenteditable="true">$1,000,000</td><td class="c-rev bm" contenteditable="true">—</td><td class="c-notes" contenteditable="true"></td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">Content partnerships</td><td class="c-scope" contenteditable="true">Wildz, Sportsbet, Betano</td><td class="c-rev est" contenteditable="true">$200,000</td><td class="c-rev bm" contenteditable="true">—</td><td class="c-notes" contenteditable="true"></td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">Netflix build-up</td><td class="c-scope" contenteditable="true">Global partner, or US partner, upsell</td><td class="c-rev est" contenteditable="true">$1,000,000</td><td class="c-rev bm" contenteditable="true">—</td><td class="c-notes" contenteditable="true"></td></tr>
       </tbody>
 
       <tbody class="grp s2">
@@ -844,16 +849,16 @@
           </td>
           <td class="c-rev gridrev g-s2">$5,100,000</td>
           <td class="c-rev gridbm b-s2">—</td>
-        </tr>
-        <tr class="cat"><td class="c-cat" contenteditable="true">Global, rest of world</td><td class="c-scope" contenteditable="true">Cloudbet, Stake, Duelbits, 1xBet, Sportsbet.io, BC Game</td><td class="c-rev est" contenteditable="true">$1,600,000</td><td class="c-rev bm" contenteditable="true">—</td></tr>
-        <tr class="cat"><td class="c-cat" contenteditable="true">US sports betting</td><td class="c-scope" contenteditable="true">FanDuel, DraftKings, betMGM, Fanatics, Caesars</td><td class="c-rev est" contenteditable="true">$500,000</td><td class="c-rev bm" contenteditable="true">—</td></tr>
-        <tr class="cat"><td class="c-cat" contenteditable="true">US predictions</td><td class="c-scope" contenteditable="true">Kalshi, Polymarket, Novig, ProphetX</td><td class="c-rev est" contenteditable="true">$500,000</td><td class="c-rev bm" contenteditable="true">—</td></tr>
-        <tr class="cat"><td class="c-cat" contenteditable="true">US social casino</td><td class="c-scope" contenteditable="true">MyPrize, Stake.us, McLuck, WOW Vegas</td><td class="c-rev est" contenteditable="true">$500,000</td><td class="c-rev bm" contenteditable="true">—</td></tr>
-        <tr class="cat"><td class="c-cat" contenteditable="true">United Kingdom</td><td class="c-scope" contenteditable="true">Mr Q, NetBet, Lottoland, Unibet</td><td class="c-rev est" contenteditable="true">$350,000</td><td class="c-rev bm" contenteditable="true">—</td></tr>
-        <tr class="cat"><td class="c-cat" contenteditable="true">France</td><td class="c-scope" contenteditable="true">Betclic, PokerStars, NetBet, Winamax</td><td class="c-rev est" contenteditable="true">$300,000</td><td class="c-rev bm" contenteditable="true">—</td></tr>
-        <tr class="cat"><td class="c-cat" contenteditable="true">Belgium</td><td class="c-scope" contenteditable="true">Bwin, Betano, Superbet</td><td class="c-rev est" contenteditable="true">$150,000</td><td class="c-rev bm" contenteditable="true">—</td></tr>
-        <tr class="cat"><td class="c-cat" contenteditable="true">Content partnerships</td><td class="c-scope" contenteditable="true">Wildz, Sportsbet, Betano</td><td class="c-rev est" contenteditable="true">$200,000</td><td class="c-rev bm" contenteditable="true">—</td></tr>
-        <tr class="cat"><td class="c-cat" contenteditable="true"><span style="letter-spacing: -0.14px;">Netflix build-up</span></td><td class="c-scope" contenteditable="true">Global partner, or US partner, upsell</td><td class="c-rev est" contenteditable="true">$1,000,000</td><td class="c-rev bm" contenteditable="true">—</td></tr>
+        <td class="c-notes" contenteditable="true"></td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">Global, rest of world</td><td class="c-scope" contenteditable="true">Cloudbet, Stake, Duelbits, 1xBet, Sportsbet.io, BC Game</td><td class="c-rev est" contenteditable="true">$1,600,000</td><td class="c-rev bm" contenteditable="true">—</td><td class="c-notes" contenteditable="true"></td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">US sports betting</td><td class="c-scope" contenteditable="true">FanDuel, DraftKings, betMGM, Fanatics, Caesars</td><td class="c-rev est" contenteditable="true">$500,000</td><td class="c-rev bm" contenteditable="true">—</td><td class="c-notes" contenteditable="true"></td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">US predictions</td><td class="c-scope" contenteditable="true">Kalshi, Polymarket, Novig, ProphetX</td><td class="c-rev est" contenteditable="true">$500,000</td><td class="c-rev bm" contenteditable="true">—</td><td class="c-notes" contenteditable="true"></td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">US social casino</td><td class="c-scope" contenteditable="true">MyPrize, Stake.us, McLuck, WOW Vegas</td><td class="c-rev est" contenteditable="true">$500,000</td><td class="c-rev bm" contenteditable="true">—</td><td class="c-notes" contenteditable="true"></td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">United Kingdom</td><td class="c-scope" contenteditable="true">Mr Q, NetBet, Lottoland, Unibet</td><td class="c-rev est" contenteditable="true">$350,000</td><td class="c-rev bm" contenteditable="true">—</td><td class="c-notes" contenteditable="true"></td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">France</td><td class="c-scope" contenteditable="true">Betclic, PokerStars, NetBet, Winamax</td><td class="c-rev est" contenteditable="true">$300,000</td><td class="c-rev bm" contenteditable="true">—</td><td class="c-notes" contenteditable="true"></td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">Belgium</td><td class="c-scope" contenteditable="true">Bwin, Betano, Superbet</td><td class="c-rev est" contenteditable="true">$150,000</td><td class="c-rev bm" contenteditable="true">—</td><td class="c-notes" contenteditable="true"></td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">Content partnerships</td><td class="c-scope" contenteditable="true">Wildz, Sportsbet, Betano</td><td class="c-rev est" contenteditable="true">$200,000</td><td class="c-rev bm" contenteditable="true">—</td><td class="c-notes" contenteditable="true"></td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true"><span style="letter-spacing: -0.14px;">Netflix build-up</span></td><td class="c-scope" contenteditable="true">Global partner, or US partner, upsell</td><td class="c-rev est" contenteditable="true">$1,000,000</td><td class="c-rev bm" contenteditable="true">—</td><td class="c-notes" contenteditable="true"></td></tr>
       </tbody>
 
       <tbody class="grp s3">
@@ -865,15 +870,15 @@
           </td>
           <td class="c-rev gridrev g-s3">$5,100,000</td>
           <td class="c-rev gridbm b-s3">—</td>
-        </tr>
-        <tr class="cat"><td class="c-cat" contenteditable="true">Global, rest of world</td><td class="c-scope" contenteditable="true">Cloudbet, Stake, Duelbits, 1xBet, Sportsbet.io, BC Game</td><td class="c-rev est" contenteditable="true">$1,600,000</td><td class="c-rev bm" contenteditable="true">—</td></tr>
-        <tr class="cat"><td class="c-cat" contenteditable="true">US betting and predictions</td><td class="c-scope" contenteditable="true">FanDuel, DraftKings, Fanatics, Polymarket, Kalshi, Novig</td><td class="c-rev est" contenteditable="true">$1,000,000</td><td class="c-rev bm" contenteditable="true">—</td></tr>
-        <tr class="cat"><td class="c-cat" contenteditable="true">US social casino</td><td class="c-scope" contenteditable="true">MyPrize, Stake.us, McLuck, WOW Vegas</td><td class="c-rev est" contenteditable="true">$500,000</td><td class="c-rev bm" contenteditable="true">—</td></tr>
-        <tr class="cat"><td class="c-cat" contenteditable="true">United Kingdom</td><td class="c-scope" contenteditable="true">Mr Q, NetBet, Lottoland, Unibet</td><td class="c-rev est" contenteditable="true">$350,000</td><td class="c-rev bm" contenteditable="true">—</td></tr>
-        <tr class="cat"><td class="c-cat" contenteditable="true">France</td><td class="c-scope" contenteditable="true">Betclic, PokerStars, NetBet, Winamax</td><td class="c-rev est" contenteditable="true">$300,000</td><td class="c-rev bm" contenteditable="true">—</td></tr>
-        <tr class="cat"><td class="c-cat" contenteditable="true">Belgium</td><td class="c-scope" contenteditable="true">Bwin, Betano, Superbet</td><td class="c-rev est" contenteditable="true">$150,000</td><td class="c-rev bm" contenteditable="true">—</td></tr>
-        <tr class="cat"><td class="c-cat" contenteditable="true">Content partnerships</td><td class="c-scope" contenteditable="true">Wildz, Sportsbet, Betano</td><td class="c-rev est" contenteditable="true">$200,000</td><td class="c-rev bm" contenteditable="true">—</td></tr>
-        <tr class="cat"><td class="c-cat" contenteditable="true"><span style="letter-spacing: -0.14px;">Netflix build-up</span></td><td class="c-scope" contenteditable="true">Global partner, or US partner, upsell</td><td class="c-rev est" contenteditable="true">$1,000,000</td><td class="c-rev bm" contenteditable="true">—</td></tr>
+        <td class="c-notes" contenteditable="true"></td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">Global, rest of world</td><td class="c-scope" contenteditable="true">Cloudbet, Stake, Duelbits, 1xBet, Sportsbet.io, BC Game</td><td class="c-rev est" contenteditable="true">$1,600,000</td><td class="c-rev bm" contenteditable="true">—</td><td class="c-notes" contenteditable="true"></td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">US betting and predictions</td><td class="c-scope" contenteditable="true">FanDuel, DraftKings, Fanatics, Polymarket, Kalshi, Novig</td><td class="c-rev est" contenteditable="true">$1,000,000</td><td class="c-rev bm" contenteditable="true">—</td><td class="c-notes" contenteditable="true"></td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">US social casino</td><td class="c-scope" contenteditable="true">MyPrize, Stake.us, McLuck, WOW Vegas</td><td class="c-rev est" contenteditable="true">$500,000</td><td class="c-rev bm" contenteditable="true">—</td><td class="c-notes" contenteditable="true"></td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">United Kingdom</td><td class="c-scope" contenteditable="true">Mr Q, NetBet, Lottoland, Unibet</td><td class="c-rev est" contenteditable="true">$350,000</td><td class="c-rev bm" contenteditable="true">—</td><td class="c-notes" contenteditable="true"></td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">France</td><td class="c-scope" contenteditable="true">Betclic, PokerStars, NetBet, Winamax</td><td class="c-rev est" contenteditable="true">$300,000</td><td class="c-rev bm" contenteditable="true">—</td><td class="c-notes" contenteditable="true"></td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">Belgium</td><td class="c-scope" contenteditable="true">Bwin, Betano, Superbet</td><td class="c-rev est" contenteditable="true">$150,000</td><td class="c-rev bm" contenteditable="true">—</td><td class="c-notes" contenteditable="true"></td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true">Content partnerships</td><td class="c-scope" contenteditable="true">Wildz, Sportsbet, Betano</td><td class="c-rev est" contenteditable="true">$200,000</td><td class="c-rev bm" contenteditable="true">—</td><td class="c-notes" contenteditable="true"></td></tr>
+        <tr class="cat"><td class="c-cat" contenteditable="true"><span style="letter-spacing: -0.14px;">Netflix build-up</span></td><td class="c-scope" contenteditable="true">Global partner, or US partner, upsell</td><td class="c-rev est" contenteditable="true">$1,000,000</td><td class="c-rev bm" contenteditable="true">—</td><td class="c-notes" contenteditable="true"></td></tr>
       </tbody>
     </table>
     </div>
@@ -911,7 +916,7 @@
 </div>
 
 <script>
-  var STORE_KEY = 'pfl2027:v3';
+  var STORE_KEY = 'pfl2027:v4';
   (function(){
     try{
       var saved = window.localStorage.getItem(STORE_KEY);
@@ -927,7 +932,7 @@
       '.bl-title','.bl-sub','.bl-body p','.bl-body li',
       '.terr .m','.terr .d',
       '.scen-no','.scen-head h3','.scen-lede',
-      '.key-h','.key-sub','tr.grp-head b','tr.grp-head .sub','.sec-h','ul.editlist li',
+      '.key-h','.key-sub','tr.grp-head b','tr.grp-head .sub','.sec-h','ul.editlist li','td.c-notes','th.c-notes',
       'table.stab thead th','table.stab td.c-mkt','table.stab tfoot td:first-child',
       'footer span'
     ].join(',');
