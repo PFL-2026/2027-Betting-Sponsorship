@@ -213,8 +213,17 @@
 
 
 
-  #editToggle{
+  #moreBtn{
     margin-left:auto;align-self:center;appearance:none;background:none;font:inherit;
+    font-size:12px;font-weight:600;color:var(--muted);border:1px solid var(--rule);
+    border-radius:999px;padding:5px 12px;cursor:pointer;white-space:nowrap;
+  }
+  #moreBtn:hover,#moreBtn[aria-expanded="true"]{color:var(--ink);border-color:var(--ink)}
+  #moreBtn:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+  .tab[data-secondary]{display:none}
+  .tabs.showall .tab[data-secondary]{display:inline-block}
+  #editToggle{
+    margin-left:8px;align-self:center;appearance:none;background:none;font:inherit;
     font-size:12px;font-weight:600;color:var(--muted);border:1px solid var(--rule);
     border-radius:999px;padding:5px 12px;cursor:pointer;white-space:nowrap;
   }
@@ -357,7 +366,7 @@
     body{background:#fff}
     .sheet{margin:0;padding:0;max-width:none}
     .tabs{display:none}
-    #editToggle,#exportBtn,.addbullet{display:none}
+    #editToggle,#exportBtn,#moreBtn,.addbullet{display:none}
     [hidden]{display:block !important}
     .block{break-inside:avoid}
     .panel + .panel{break-before:page;padding-top:20px}
@@ -369,8 +378,9 @@
 
   <div class="tabs" role="tablist" aria-label="One-pagers">
     <button class="tab" role="tab" id="tab-gr" aria-controls="panel-gr" aria-selected="true">2027 sponsorship grid</button>
-    <button class="tab" role="tab" id="tab-cb" aria-controls="panel-cb" aria-selected="false">Cloudbet structure</button>
-    <button class="tab" role="tab" id="tab-mk" aria-controls="panel-mk" aria-selected="false">Market approach</button>
+    <button class="tab" role="tab" id="tab-cb" data-secondary="1" aria-controls="panel-cb" aria-selected="false">Cloudbet structure</button>
+    <button class="tab" role="tab" id="tab-mk" data-secondary="1" aria-controls="panel-mk" aria-selected="false">Market approach</button>
+    <button type="button" id="moreBtn" aria-expanded="false">More</button>
     <button type="button" id="editToggle" aria-pressed="true">Editing on</button>
     <button type="button" id="exportBtn">Export HTML</button>
   </div>
@@ -521,10 +531,6 @@
     </div>
 
 
-    <footer>
-      <span contenteditable="true">PFL / MVP betting sponsorship, 2027 slate</span>
-      <span contenteditable="true">Draft for internal discussion</span>
-    </footer>
 
   </section>
 
@@ -815,7 +821,7 @@
 </div>
 
 <script>
-  var STORE_KEY = 'pfl2027:v7';
+  var STORE_KEY = 'pfl2027:v8';
   (function(){
     try{
       var saved = window.localStorage.getItem(STORE_KEY);
@@ -861,6 +867,13 @@
       });
       window.scrollTo(0,0);
     }
+    var more = document.getElementById('moreBtn');
+    var bar = document.querySelector('.tabs');
+    if(more && bar) more.addEventListener('click', function(){
+      var open = bar.classList.toggle('showall');
+      more.setAttribute('aria-expanded', open ? 'true' : 'false');
+      more.textContent = open ? 'Fewer' : 'More';
+    });
     if(tabs.length) select(tabs[0]);
     tabs.forEach(function(t, i){
       t.addEventListener('click', function(){ select(t); });
